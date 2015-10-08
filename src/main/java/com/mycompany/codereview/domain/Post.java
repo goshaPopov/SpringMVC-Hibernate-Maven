@@ -6,6 +6,7 @@
 package com.mycompany.codereview.domain;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,6 +40,8 @@ public class Post {
     
     @Column(name="User_id")
     private User user;
+    
+    private List<Comment> comments;
     
     public Post(){
         
@@ -98,6 +101,14 @@ public class Post {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
     
     
