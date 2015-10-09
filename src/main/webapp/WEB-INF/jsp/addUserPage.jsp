@@ -13,15 +13,15 @@
     </head>
     <body>
         <c:url var="saveUrl" value="/user/addUser" />
-        <form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
+        <form modelAttribute="newUser" method="POST" action="${saveUrl}">
 	<table>
                 <tr>
 			<td><form:label path="name">Name:</form:label></td>
-			<td><form:input path="name"/></td>
+			<td><form:input path="name" value=""/></td>
 		</tr>
 		<tr>
 			<td><form:label path="surname">Surname:</form:label></td>
-			<td><form:input path="surname"/></td>
+			<td><form:input path="surname" value=""/></td>
 		</tr>
 
 		<tr>
@@ -31,11 +31,11 @@
 		
 		<tr>
 			<td><form:label path="skills">Skills</form:label></td>
-			<td><form:input path="skills"/></td>
+			<td><form:input path="skills" value=""/></td>
 		</tr>
 	</table>
 	
 	<input type="submit" value="Save" />
-        </form:form>
+        </form>
     </body>
 </html>

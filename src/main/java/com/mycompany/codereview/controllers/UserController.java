@@ -34,7 +34,7 @@ public class UserController {
     @RequestMapping(value="/list", method = RequestMethod.GET)
     public String getAllUsers(Model model){
         
-        log.debug("Request to get list of users");
+        log.info("Request to get list of users");
          
         model.addAttribute(userService.getAllUsers());
         
@@ -44,7 +44,7 @@ public class UserController {
     @RequestMapping(value="/addPageUser", method = RequestMethod.GET)
     public String getAddPageUser(Model model){
         
-        log.debug("Request to add user.");
+        log.info("Request to add user.");
         
         model.addAttribute("newUser",new User());
         
@@ -55,7 +55,7 @@ public class UserController {
     public String addUser(@ModelAttribute("newUser") User user, Model model){
         userService.addUser(user);
         
-        log.debug("User added.");
+        log.info("User added.");
         
         model.addAttribute(user);
         
@@ -67,7 +67,7 @@ public class UserController {
         
         model.addAttribute(userService.getUserById(id));
         
-        log.debug("Return user profile by id: "+ id);
+        log.info("Return user profile by id: "+ id);
         
         return "profile";
     }
