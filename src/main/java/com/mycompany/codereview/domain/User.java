@@ -6,6 +6,7 @@
 package com.mycompany.codereview.domain;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,11 +41,13 @@ public class User {
     @Column(name="skills")
     private String skills;
     
+    @Column
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private List<Post> posts;
+    private List<Post> posts = new LinkedList();
     
+    @Column
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Comment> comments;
+    private List<Comment> comments = new LinkedList();
     
     
     public User(){
