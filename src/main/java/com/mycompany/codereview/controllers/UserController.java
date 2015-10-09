@@ -59,7 +59,7 @@ public class UserController {
         
         model.addAttribute(user);
         
-        return "profile";
+        return "redirect:/" + user.getId();
     }
     
     @RequestMapping(value="{id}", method = RequestMethod.GET)

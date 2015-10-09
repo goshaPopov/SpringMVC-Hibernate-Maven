@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +15,7 @@
     </head>
     <body>
         <c:url var="saveUrl" value="/user/addUser" />
-        <form modelAttribute="newUser" method="POST" action="${saveUrl}">
+        <form:form modelAttribute="newUser" method="POST" action="${saveUrl}">
 	<table>
                 <tr>
 			<td><form:label path="name">Name:</form:label></td>
@@ -23,11 +25,6 @@
 			<td><form:label path="surname">Surname:</form:label></td>
 			<td><form:input path="surname" value=""/></td>
 		</tr>
-
-		<tr>
-			<td><form:label path="date_of_birdth">Date of birthday: </form:label></td>
-			<td><form:input path="date_of_birdth" type="date" name="calendar"/></td>
-		</tr>
 		
 		<tr>
 			<td><form:label path="skills">Skills</form:label></td>
@@ -36,6 +33,6 @@
 	</table>
 	
 	<input type="submit" value="Save" />
-        </form>
+        </form:form>
     </body>
 </html>

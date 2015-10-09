@@ -12,6 +12,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -25,7 +26,7 @@ import javax.persistence.Table;
 public class User {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
     
@@ -34,9 +35,6 @@ public class User {
     
     @Column(name="surname")
     private String surname;
-    
-    @Column(name="date_of_birdth")
-    private Date date_of_birdth;
     
     @Column(name="skills")
     private String skills;
@@ -54,10 +52,9 @@ public class User {
         
     }
 
-    public User(String name, String surname, Date date_of_birdth, String skills){
+    public User(String name, String surname, String skills){
         this.name = name;
         this.surname = surname;
-        this.date_of_birdth = date_of_birdth;
         this.skills = skills;
     }
     
@@ -83,14 +80,6 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public Date getDate() {
-        return date_of_birdth;
-    }
-
-    public void setDate(Date date) {
-        this.date_of_birdth = date;
     }
 
     public String getSkills() {
