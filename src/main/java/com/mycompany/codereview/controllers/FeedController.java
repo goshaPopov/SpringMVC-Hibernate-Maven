@@ -41,7 +41,7 @@ public class FeedController {
         
         model.addAllAttributes(postService.getAllPosts());
         
-        log.debug(("Get List of posts and return \"index.jsp\" "));
+        log.debug(("Get List  of posts and return \"index.jsp\" "));
         
         return "index" ;
     }
