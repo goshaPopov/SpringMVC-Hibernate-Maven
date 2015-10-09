@@ -9,8 +9,10 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -38,9 +40,12 @@ public class User {
     @Column(name="skills")
     private String skills;
     
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<Post> posts;
     
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Comment> comments;
+    
     
     public User(){
         
