@@ -15,12 +15,14 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Georgiy Popov
  */
 @Repository
+@Transactional
 public class PostDAOImpl implements PostDAO{
     
     private SessionFactory sessionFactory;
@@ -30,6 +32,7 @@ public class PostDAOImpl implements PostDAO{
         this.sessionFactory = sessionFactory;
     }
     
+    @Transactional
     public Session currentSession(){
         return sessionFactory.getCurrentSession();
     }

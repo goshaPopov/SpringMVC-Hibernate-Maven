@@ -9,8 +9,10 @@ import com.mycompany.codereview.domain.Comment;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Repository;
  * @author Georgiy Popov
  */
 @Repository
+@Transactional
 public class CommentDAOImpl implements CommentDAO{
     
     private SessionFactory sessionFactory;
@@ -27,6 +30,7 @@ public class CommentDAOImpl implements CommentDAO{
         this.sessionFactory = sessionFactory;
     }
     
+    @Transactional
     private Session currentSession(){
         return sessionFactory.getCurrentSession();
         
