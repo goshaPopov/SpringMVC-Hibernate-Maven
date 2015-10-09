@@ -9,6 +9,7 @@ import com.mycompany.codereview.domain.Post;
 import com.mycompany.codereview.domain.User;
 
 import java.util.List;
+import org.apache.log4j.Logger;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
@@ -24,6 +25,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class UserDAOImpl implements UserDAO{
+    
+    private static final Logger log = Logger.getLogger(UserDAOImpl.class);
     
     private SessionFactory sessionFactory;
     

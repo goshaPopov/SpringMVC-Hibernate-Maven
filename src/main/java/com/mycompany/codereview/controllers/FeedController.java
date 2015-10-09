@@ -9,6 +9,7 @@ import com.mycompany.codereview.domain.Post;
 import com.mycompany.codereview.service.PostService;
 import com.mycompany.codereview.service.UserService;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class FeedController {
     
+    private static final Logger log = Logger.getLogger(FeedController.class);
+    
     private PostService postService;
     private UserService userService;
     
@@ -33,8 +36,11 @@ public class FeedController {
     
     @RequestMapping(value={"/","/feed"}, method = RequestMethod.GET)
     public String showFeedPage(Model model){
+        
+        log.info(("Request to \"/\" or \"/feed\" "));
+        
         model.addAllAttributes(postService.getAllPosts());
-        return "index";
+        return "index" ;
     }
     
 }

@@ -6,6 +6,7 @@
 package com.mycompany.codereview.dao;
 
 import com.mycompany.codereview.domain.Comment;
+import org.apache.log4j.Logger;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
@@ -23,6 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CommentDAOImpl implements CommentDAO{
     
+    private static final Logger log = Logger.getLogger(CommentDAOImpl.class);
+    
     private SessionFactory sessionFactory;
     
     @Autowired
@@ -33,11 +36,11 @@ public class CommentDAOImpl implements CommentDAO{
     @Transactional
     private Session currentSession(){
         return sessionFactory.getCurrentSession();
-        
     }
     
     @Override
     public Comment getCommetnById(Integer id) {
+        
         return (Comment) currentSession().get(Comment.class,id);
     }
 
