@@ -37,9 +37,12 @@ public class FeedController {
     @RequestMapping(value={"/","/feed"}, method = RequestMethod.GET)
     public String showFeedPage(Model model){
         
-        log.info(("Request to \"/\" or \"/feed\" "));
+        log.debug(("Request to \"/\" or \"/feed\" "));
         
         model.addAllAttributes(postService.getAllPosts());
+        
+        log.debug(("Get List of posts and return \"index.jsp\" "));
+        
         return "index" ;
     }
     
