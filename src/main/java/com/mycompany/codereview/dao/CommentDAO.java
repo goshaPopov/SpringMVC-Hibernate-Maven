@@ -5,10 +5,18 @@
  */
 package com.mycompany.codereview.dao;
 
+import com.mycompany.codereview.domain.Comment;
+
 /**
  *
- * @author gosha
+ * @author Georgiy Popov
  */
 public interface CommentDAO {
+    
+    public Comment getCommetnById(Integer id);
+    public void addComment(Comment comment);
+    public void editComment(Comment comment);
+    public void deleteComment(Comment comment);
+    
     
 }

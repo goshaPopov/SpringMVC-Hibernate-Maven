@@ -5,10 +5,21 @@
  */
 package com.mycompany.codereview.dao;
 
+import com.mycompany.codereview.domain.Post;
+import com.mycompany.codereview.domain.User;
+import java.util.List;
+
 /**
  *
- * @author gosha
+ * @author Georgiy Popov
  */
 public interface UserDAO {
+    
+    public void addUser(User user);
+    public List<User> getAllUsers();
+    public User getUserById(Integer id);
+    public void editUser(User user);
+    public void deleteUser(User user);
+    public List<Post> getPostsOfUser(User user);
     
 }
